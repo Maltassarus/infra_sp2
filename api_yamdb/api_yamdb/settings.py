@@ -68,8 +68,8 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE'),
-        'NAME': os.getenv('DB_NAME'),
+	'ENGINE': os.getenv('DB_ENGINE'),
+	'NAME': os.getenv('DB_NAME'),
 	'USER': os.getenv('POSTGRES_USER'),
 	'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
 	'HOST': os.getenv('DB_HOST'),
@@ -117,7 +117,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-#STATICFILES_DIRS = ((BASE_DIR / 'static/'),)
+# STATICFILES_DIRS = ((BASE_DIR / 'static/'),)
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 
