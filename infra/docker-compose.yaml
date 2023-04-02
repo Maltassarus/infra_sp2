@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 version: '3'
 
 services:
@@ -9,6 +10,24 @@ services:
       - ./.env
   web:
     build: ../api_yamdb
+=======
+# версия docker-compose
+version: '3'
+# имена и описания контейнеров, которые должны быть развёрнуты
+services:
+  # описание контейнера db
+  db:
+    # образ, из которого должен быть запущен контейнер
+    image: postgres:13.0-alpine
+    # volume и связанная с ним директория в контейнере
+    volumes:
+      - /var/lib/postgresql/data/
+    # адрес файла, где хранятся переменные окружения
+    env_file:
+      - ./.env
+  web: 
+    build: /../api_yamdb
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
     restart: always
     volumes:
       - static_value:/app/static/
@@ -25,11 +44,21 @@ services:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
       - static_value:/var/html/static/
       - media_value:/var/html/media/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
     depends_on:
       - web
 
 volumes:
+<<<<<<< HEAD
   static_value:
   media_value:
  
+=======
+
+  static_value:
+
+  media_value:
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab

@@ -1,19 +1,25 @@
 import os
 from datetime import timedelta
+<<<<<<< HEAD
 from pathlib import Path
+=======
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
+<<<<<<< HEAD
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', default='12345')
+=======
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY', default=12345)
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -34,7 +40,10 @@ INSTALLED_APPS = [
     'reviews.apps.ReviewsConfig',
     'rest_framework',
     'django_filters',
+<<<<<<< HEAD
+=======
     'api',
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
 ]
 
 MIDDLEWARE = [
@@ -49,7 +58,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'api_yamdb.urls'
 
+<<<<<<< HEAD
+TEMPLATES_DIR = BASE_DIR / 'templates'
+=======
 TEMPLATES_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -74,13 +87,24 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
+<<<<<<< HEAD
         'NAME': os.getenv('DB_NAME', default='postgres'),
         'USER': os.getenv('POSTGRES_USER', default='postgres'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='postgres'),
         'HOST': os.getenv('DB_HOST', default='postgres'),
         'PORT': os.getenv('DB_PORT', default='5432')
     }
+} 
+=======
+        'NAME': os.getenv('DB_NAME', default='db_name'),
+        'USER': os.getenv('POSTGRES_USER', default='test_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='1'),
+        'HOST': os.getenv('DB_HOST', default='test_host'),
+        'PORT': os.getenv('DB_PORT', default='5432')
+    }
 }
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
+
 
 # Password validation
 AUTH_USER_MODEL = 'users.User'
@@ -116,6 +140,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
+<<<<<<< HEAD
 
 STATIC_URL = '/static/'
 
@@ -131,6 +156,14 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+=======
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# STATICFILES_DIRS = ((BASE_DIR / 'static/'),)
+>>>>>>> 7d9f817691c6611eb87e60d5e77a69843c7166ab
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 

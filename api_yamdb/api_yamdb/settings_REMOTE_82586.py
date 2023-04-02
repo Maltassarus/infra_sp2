@@ -1,15 +1,10 @@
 import os
 from datetime import timedelta
-from pathlib import Path
 
 from dotenv import load_dotenv
 
 load_dotenv()
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY', default='12345')
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -74,13 +69,14 @@ WSGI_APPLICATION = 'api_yamdb.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME', default='postgres'),
-        'USER': os.getenv('POSTGRES_USER', default='postgres'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='postgres'),
-        'HOST': os.getenv('DB_HOST', default='postgres'),
+        'NAME': os.getenv('DB_NAME', default='db_name'),
+        'USER': os.getenv('POSTGRES_USER', default='test_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='1'),
+        'HOST': os.getenv('DB_HOST', default='test_host'),
         'PORT': os.getenv('DB_PORT', default='5432')
     }
 }
+
 
 # Password validation
 AUTH_USER_MODEL = 'users.User'
@@ -116,21 +112,12 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 
-
 STATIC_URL = '/static/'
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
- 
-#if not DEBUG:
-#    STATIC_ROOT = ''
-    
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static/'),
-]
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+# STATICFILES_DIRS = ((BASE_DIR / 'static/'),)
 
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'
 
